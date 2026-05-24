@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { PropertiesProvider } from './context/PropertiesContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/property/:id" element={<PropertyPage />} />
           <Route path="/admin" element={<Admin />} />
         </Routes>
+        <Analytics />
       </Router>
     </PropertiesProvider>
   );

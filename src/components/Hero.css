@@ -1,0 +1,137 @@
+.hero {
+  position: relative; height: 100vh; min-height: 680px;
+  display: flex; align-items: flex-end;
+  overflow: hidden; background: var(--bg-dark);
+}
+
+/* Slides */
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.6s var(--ease); }
+.hero-slide.active { opacity: 1; }
+.hero-slide img {
+  width: 100%; height: 100%; object-fit: cover;
+  transform: scale(1.04);
+  animation: heroZoom 9s var(--ease) forwards;
+}
+@keyframes heroZoom { to { transform: scale(1); } }
+
+/* Overlay */
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    160deg,
+    rgba(5,5,5,0.2) 0%,
+    rgba(5,5,5,0.05) 40%,
+    rgba(5,5,5,0.6) 75%,
+    rgba(5,5,5,0.92) 100%
+  );
+}
+
+/* Content */
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 2.5rem; max-width: 900px;
+  margin: 0 5% 7%;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  text-align: left;
+}
+.hero-eyebrow {
+  font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-light); font-weight: 600;
+  margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.8rem;
+}
+.hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 8vw, 7rem);
+  font-weight: 900; line-height: 0.95;
+  color: var(--white); text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+.hero-accent {
+  color: var(--gold);
+  display: inline-block;
+}
+.hero-sub {
+  font-size: 1rem; color: rgba(255,255,255,0.85);
+  max-width: 520px; line-height: 1.75; font-weight: 400;
+  margin-bottom: 2.5rem;
+}
+
+/* Buttons */
+.hero-btns {
+  display: flex; gap: 1.2rem; flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.btn-hero-primary {
+  background: var(--gold); color: var(--charcoal);
+  padding: 1rem 2.4rem; font-size: 0.82rem;
+  font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  border: none; cursor: pointer; transition: all 0.3s var(--ease);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  position: relative;
+}
+.btn-hero-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(179,132,43,0.3); }
+.btn-hero-ghost {
+  background: transparent; color: var(--white);
+  border: 1px solid rgba(255,255,255,0.35);
+  padding: 1rem 2.4rem; font-size: 0.82rem;
+  font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.3s var(--ease);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+  border-radius: var(--radius-btn);
+  position: relative;
+}
+.btn-hero-ghost:hover { border-color: var(--gold); color: var(--gold); background: rgba(255, 255, 255, 0.05); }
+
+/* Slide indicators */
+.hero-indicators {
+  position: absolute; bottom: 2.5rem; right: 5%; z-index: 3;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.hero-dot {
+  width: 3px; height: 28px; background: rgba(255,255,255,0.25);
+  border: none; cursor: pointer; transition: all 0.4s;
+  border-radius: var(--radius-btn);
+}
+.hero-dot.active { background: var(--gold); height: 44px; }
+
+/* Slide label */
+.hero-slide-label {
+  position: absolute; bottom: 2.5rem; left: 6%; z-index: 3;
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45); font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 2rem 1.5rem;
+    margin: 0 4% 6rem;
+    width: auto;
+    position: relative;
+  }
+  .hero-content h1 {
+    font-size: clamp(2.8rem, 11vw, 4.4rem);
+    text-align: left;
+  }
+  .hero-sub {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+  .hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+    width: 100%;
+  }
+  .btn-hero-primary, .btn-hero-ghost {
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-indicators { display: none; }
+}

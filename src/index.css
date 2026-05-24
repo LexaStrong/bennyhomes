@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f8f6f2;
+  --bg-dark: #0a0a0a;
+  --bg-mid: #121212;
+  --charcoal: #141414;
+  --text-primary: #141414;
+  --text-secondary: #4e4842;
+  --text-muted: #7e7973;
+  --gold: #b3842b;
+  --gold-light: #cf9c3c;
+  --white: #ffffff;
+  --border: rgba(200, 194, 185, 0.4);
+  --border-light: rgba(255,255,255,0.08);
+  --font-display: 'Barlow Condensed', 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --ease: cubic-bezier(0.25, 1, 0.5, 1);
+  --radius: 20px;
+  --radius-inner: 14px;
+  --radius-btn: 100px;
+  --radius-sm: 8px;
+  
+  /* Glassmorphism Styles */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-blur: blur(20px);
+  --glass-dark-bg: rgba(13, 13, 13, 0.7);
+  --glass-dark-border: rgba(255, 255, 255, 0.1);
+  --shadow-elegant: 0 10px 40px rgba(0, 0, 0, 0.04);
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Reusable ── */
+.section-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.section-eyebrow.light { color: rgba(255,255,255,0.55); }
+
+button { cursor: pointer; font-family: var(--font-body); }
+
+a { text-decoration: none; color: inherit; }
